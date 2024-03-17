@@ -11,7 +11,7 @@ export default class App extends Component {
   pageSize=5;
   render() {
     return (
-      <div >
+      <div style={{backgroundColor:"rgb(188 223 255)"}}>
         <Router>
           <Navbar/>
           <Routes>
