@@ -91,7 +91,7 @@ this.update();
       <>
         {" "}
         <div className="container my-3 ">
-          <h1 className=" text-center bg-primary text-light">Sandesh</h1>
+          <h1 className=" text-center bg-primary text-light py-2">Sandesh</h1>
           {this.state.loading && <Spinner />}
           <div className="row">
             {!this.state.loading &&
