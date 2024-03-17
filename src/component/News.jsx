@@ -14,20 +14,20 @@ export class News extends Component {
     pageSize: PropTypes.number,
     category: PropTypes.string,
   };
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [],
       page: 1,
       Loading: false,
     };
+    document.title = `Sandesh - ${this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)}`;
   }
   async update(){
     let url = `https://newsapi.org/v2/top-headlines?&country=${this.props.country}&category=${this.props.category}&apiKey=39b492da28fa492995bea597ec322fbd&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
     let parseData = await data.json();
-    console.log(parseData);
     this.setState({ articles: parseData.articles, loading: false });
     this.setState({
       articles: parseData.articles,
@@ -91,7 +91,7 @@ this.update();
       <>
         {" "}
         <div className="container my-3 ">
-          <h1 className=" text-center bg-primary text-light py-2">Sandesh</h1>
+          <h1 className=" text-center bg-primary text-light py-2">Sandesh from {this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)}</h1>
           {this.state.loading && <Spinner />}
           <div className="row">
             {!this.state.loading &&
