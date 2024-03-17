@@ -73,7 +73,7 @@ this.setState({
         {
        !this.state.loading && articles && articles.map((element, index)=>{
         return <div key={element.url} className="col-md-4">
-        <NewsItem  title={element.title} description={element.description} imageurl={element.urlToImage} urlId={element.url} author={element.author} date={element.publishedAt}/>
+        <NewsItem  title={element.title} description={element.description} imageurl={element.urlToImage} urlId={element.url} author={element.author} date={element.publishedAt} source={element.source.name}/>
       </div>  })}
        </div>
   <div className=" d-flex justify-content-between" role="group" aria-label="Basic mixed styles example">
