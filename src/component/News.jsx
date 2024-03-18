@@ -6,8 +6,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 export class News extends Component {
   static defaultProps = {
     country: "in",
-    pageSize: 6,
-    category: "general",  
+    pageSize: 10,
+    category: "general",
   };
   static propTypes = {
     country: PropTypes.string,
@@ -28,23 +28,30 @@ export class News extends Component {
     }`;
   }
   async update() {
-    let url = `https://newsapi.org/v2/top-headlines?&country=${this.props.country}&category=${this.props.category}&apiKey=6f85f05fc3bc4327aafba7c1e0f7041d&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-    
+    this.props.setProgress(10);
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e8dfd1f20c624b729b586724cf4835b8&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
+    this.props.setProgress(30);
     let parseData = await data.json();
+    this.props.setProgress(50);
     this.setState({
       articles: parseData.articles,
       totalResults: parseData.totalResults,
       loading: false,
     });
+    this.props.setProgress(100);
   }
   fetchMoreData = async () => {
     this.setState({ page: this.state.page + 1 });
-    let url = `https://newsapi.org/v2/top-headlines?&country=${this.props.country}&category=${this.props.category}&apiKey=6f85f05fc3bc4327aafba7c1e0f7041d&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e8dfd1f20c624b729b586724cf4835b8&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
     let parseData = await data.json();
+
     // Check if all articles have been fetched
-    if (this.state.articles.length + parseData.articles.length >= parseData.totalResults) {
+    if (
+      this.state.articles.length + parseData.articles.length >=
+      parseData.totalResults
+    ) {
       this.setState({ hasMore: false });
     }
     this.setState({
@@ -73,8 +80,7 @@ export class News extends Component {
         >
           <div className="container">
             <div className="row">
-              {
-                articles &&
+              {articles &&
                 articles.map((element, index) => {
                   return (
                     <div key={element.url} className="col-md-4">
@@ -99,9 +105,6 @@ export class News extends Component {
 }
 export default News;
 
-
-
-
 // import React, { Component } from "react";
 // import NewsItem from "./NewsItem";
 // import Spinner from "./Spinner";
@@ -112,7 +115,7 @@ export default News;
 //     country: "in",
 //     pageSize: 6,
 //     category: "general",
-    
+
 //   };
 //   static propTypes = {
 //     country: PropTypes.string,
@@ -134,7 +137,7 @@ export default News;
 //   }
 //   async update() {
 //     let url = `https://newsapi.org/v2/top-headlines?&country=${this.props.country}&category=${this.props.category}&apiKey=6f85f05fc3bc4327aafba7c1e0f7041d&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-    
+
 //     let data = await fetch(url);
 //     let parseData = await data.json();
 //     this.setState({
@@ -148,12 +151,12 @@ export default News;
 //     let url = `https://newsapi.org/v2/top-headlines?&country=${this.props.country}&category=${this.props.category}&apiKey=6f85f05fc3bc4327aafba7c1e0f7041d&page=${this.state.page}&pageSize=${this.props.pageSize}`;
 //     let data = await fetch(url);
 //     let parseData = await data.json();
-  
+
 //     // Check if all articles have been fetched
 //     if (this.state.articles.length + parseData.articles.length >= parseData.totalResults) {
 //       this.setState({ hasMore: false });
 //     }
-  
+
 //     this.setState({
 //       articles: this.state.articles.concat(parseData.articles),
 //       totalResults: parseData.totalResults
@@ -297,4 +300,3 @@ export default News;
 // // disabled={articles.length < pageSize} type="button" className="btn
 // // btn-success" onClick={this.handleOnNext}>Next→</button>       </div> </div>
 // // ); } } export default News
-
