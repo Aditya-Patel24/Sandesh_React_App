@@ -42,8 +42,8 @@ export class News extends Component {
     this.props.setProgress(100);
   }
   fetchMoreData = async () => {
-    this.setState({ page: this.state.page + 1 });
     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e8dfd1f20c624b729b586724cf4835b8&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    this.setState({ page: this.state.page + 1 });
     let data = await fetch(url);
     let parseData = await data.json();
 
@@ -66,7 +66,7 @@ export class News extends Component {
     const { articles } = this.state;
     return (
       <>
-        <h1 className=" text-center bg-primary text-light py-2">
+        <h1 className=" text-center bg-primary text-light py-2" style={{marginTop:"52px"}}>
           Sandesh from{" "}
           {this.props.category.charAt(0).toUpperCase() +
             this.props.category.slice(1)}
