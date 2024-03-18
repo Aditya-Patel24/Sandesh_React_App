@@ -27,6 +27,17 @@
 .App-link {
   color: #61dafb;
 }
+/* .card:hover{
+  box-shadow: 0px 0px 45px rgb(23, 23, 23);
+  border: #ffffff 2px solid;
+} */
+
+.card:hover {
+  transition: all 0.2s ease-out;
+  box-shadow: 0px 0px 40px rgb(32, 32, 32);
+  top: -4px;
+  border: 2px solid #ffffff;
+}
 
 @keyframes App-logo-spin {
   from {
