@@ -7,7 +7,7 @@ export class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className=" navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
+        <nav className=" navbar navbar-expand-lg navbar-dark fixed-top " style={{backgroundColor:"#747bff"}}>
           <div className="container-fluid">
             <Link className="navbar-brand" to="/business">
               Sandesh
