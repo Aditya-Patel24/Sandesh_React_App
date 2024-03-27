@@ -5,12 +5,25 @@ import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const News = (props) => {
-  // const apikey =  "fc3bc4327aafba7c1e0f7041d";
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [totalResults, setTotalResults] = useState(0);
   const [hasMore, setHasMore] = useState(true);
+
+  const categories = {
+    business: "lightblue",
+    entertainment: "lightgreen",
+    general: "lightyellow",
+    health: "lightpink",
+    science: "lightgray",
+    sports: "lightcoral",
+    technology: "lightgoldenrodyellow",
+  };
+
+  const newsStyle = {
+    backgroundColor: categories[props.category] || "white",
+  };
 
   useEffect(() => {
     document.title = `Sandesh - ${
@@ -47,8 +60,8 @@ const News = (props) => {
   };
 
   return (
-    <>
-      <h1 className=" text-center bg-primary text-light py-2" style={{marginTop:"52px"}}>
+    <div style={newsStyle}>
+      <h1 className="text-center bg-primary text-light py-2" style={{marginTop:"52px"}}>
         Sandesh from{" "}
         {props.category.charAt(0).toUpperCase() +
           props.category.slice(1)}
@@ -81,7 +94,7 @@ const News = (props) => {
           </div>
         </div>
       </InfiniteScroll>
-    </>
+    </div>
   );
 };
 

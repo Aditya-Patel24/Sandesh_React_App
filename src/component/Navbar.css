@@ -1,0 +1,41 @@
+.custom-navbar {
+    background-color: #747bff;
+    transition: all 0.5s ease;
+  }
+  
+  .custom-navbar:hover {
+    background-color: #5658dd;
+  }
+  
+  .animated-text {
+    animation: color-change 2s infinite;
+  }
+  
+  @keyframes color-change {
+    0% { color: white; }
+    50% { color: rgb(219, 255, 160); }
+    100% { color: white; }
+  }
+ 
+  .nav-link {
+    position: relative;
+  }
+  
+  .nav-link:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    height: 2px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+ 
