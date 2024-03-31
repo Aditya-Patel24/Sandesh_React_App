@@ -7,8 +7,8 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
         <div className="container-fluid">
-          <Link className="navbar-brand animated-text" to="/business">
-            Sandesh
+          <Link className="navbar-brand " to="/business">
+            <img src="src\assets\sandesh.png" alt="Sandesh" style={{width:"90px",height:"auto", paddingBottom: "2px"}} />
           </Link>
           <button
             className="navbar-toggler"
