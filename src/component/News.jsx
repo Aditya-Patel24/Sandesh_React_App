@@ -62,8 +62,7 @@ const News = (props) => {
   return (
     
     <div style={newsStyle}>
-      
-      <h1 className="text-center text-primary py-2" style={{marginTop:"52px"}}>
+      <h1 className="text-center text-primary py-2" style={{marginTop:"55px", textShadow:"1px 1px 2px black, 0 0 1em blue,  0 0 0.2em white", font: "italic 3em Georgia, serif"}}>
         Sandesh from{" "}
         {props.category.charAt(0).toUpperCase() +
           props.category.slice(1)}

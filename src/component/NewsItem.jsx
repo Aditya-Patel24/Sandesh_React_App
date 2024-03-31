@@ -3,7 +3,7 @@ const NewsItem = (props) => {
     let { title, description, imageurl, urlId, date, author, source} = props;
     return (
       <div className="card-deck my-3" >
-        <div className="card card-deck" style={{height:"600px"}} >
+        <div className="card card-deck" style={{height:"700px"}} >
         <span className="position-absolute center-100 translate-middle badge bg-dark " style={{left:'50%',top:'10px',width:"100%",borderBottomLeftRadius:"0px",borderBottomRightRadius:"0px "}}>{source} </span>
           <img src={ imageurl ? imageurl: "https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ="}className="card-img-top" style={{height:"300px"}} alt="..."/>
           <div className="card-body card-deck" >
