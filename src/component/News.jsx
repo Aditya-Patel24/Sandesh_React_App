@@ -10,7 +10,7 @@ const News = (props) => {
   const [loading, setLoading] = useState(false);
   const [totalResults, setTotalResults] = useState(0);
   const [hasMore, setHasMore] = useState(true);
-
+  
   const categories = {
     business: "lightblue",
     entertainment: "lightgreen",
