@@ -7,8 +7,8 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
         <div className="container-fluid">
-          <Link className="navbar-brand " to="/business">
-            <img src="src\assets\sandesh.png" alt="Sandesh" style={{width:"90px",height:"auto", paddingBottom: "2px",  WebkitFilter:" drop-shadow(3px 3px 3px #111111)",
+          <Link className="" to="/business">
+            <img src="src\assets\sandesh.png" alt="Sandesh" style={{width:"120px",height:"auto", paddingBottom: "2px", marginRight:"50px", WebkitFilter:" drop-shadow(3px 3px 3px #111111)",
         filter: "drop-shadow(3px 3px 3px #111111)"}} />
           </Link>
           <button
