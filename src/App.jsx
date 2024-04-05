@@ -18,10 +18,7 @@ const App = () => {
   return (
     <div style={{backgroundColor:"rgb(188 223 255)"}}>    
       <Router>
-        <LoadingBar
-          color='#f11946'
-          progress={state.progress}
-        />
+        <LoadingBar color='#f11946' progress={state.progress} />
         <Navbar/>
         <Routes>
             <Route path="/" element={<News  setProgress={setProgress}  key="home" pageSize={pageSize}  category="general"/>} />
