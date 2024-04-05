@@ -21,7 +21,8 @@ const News = (props) => {
   };
 
   const newsStyle = {
-    backgroundColor: categories[props.category] || "white",
+    backgroundColor: props.mode === 'dark' ? '#212529' : categories[props.category] || "white",
+    color: props.mode === 'dark' ? 'white' : 'black'
   };
 
   useEffect(() => {
@@ -73,7 +74,7 @@ const News = (props) => {
         hasMore={hasMore}
         loader={<Spinner/>}
       >
-        <div className="container">
+        <div className="container ">
           <div className="row">
             {articles &&
               articles.map((element, index) => {
@@ -87,6 +88,7 @@ const News = (props) => {
                       author={element.author}
                       date={element.publishedAt}
                       source={element.source.name}
+                      mode={props.mode}
                     />
                   </div>
                 );

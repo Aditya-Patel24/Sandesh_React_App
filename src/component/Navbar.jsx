@@ -1,8 +1,9 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import './Navbar.css'; // Importing the CSS file
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
@@ -33,8 +34,13 @@ const Navbar = () => {
               <li className="nav-item"><Link className="nav-link" to="/sports">Sports</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/technology">Technology </Link> </li>
             </ul>
+        <div className="form-check form-switch">
+          <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+        </div>
           </div>
         </div>
+         
+    
       </nav>
     </div>
   );
