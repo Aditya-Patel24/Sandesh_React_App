@@ -10,7 +10,6 @@ const News = (props) => {
   const [loading, setLoading] = useState(false);
   const [totalResults, setTotalResults] = useState(0);
   const [hasMore, setHasMore] = useState(true);
-
   const categories = {
     business: "lightblue",
     entertainment: "lightgreen",
@@ -20,9 +19,19 @@ const News = (props) => {
     sports: "lightcoral",
     technology: "lightgoldenrodyellow",
   };
+  // const categoriesdark = {
+  //   business: "gray",
+  //   entertainment: "black",
+  //   general: "darkblue",
+  //   health: ,
+  //   science: "darkgray",
+  //   sports: "darkcoral",
+  //   technology: "darkgoldenrodyellow",
+  // };
 
   const newsStyle = {
-    backgroundColor: categories[props.category] || "white",
+    backgroundColor: props.mode === 'dark' ? '#212529' : categories[props.category] || "white",
+    color: props.mode === 'dark' ? 'white' : 'black'
   };
 
   useEffect(() => {
@@ -60,8 +69,9 @@ const News = (props) => {
   };
 
   return (
+    
     <div style={newsStyle}>
-      <h1 className="text-center bg-primary text-light py-2" style={{marginTop:"52px"}}>
+      <h1 className="text-center text-primary py-2" style={{marginTop:"55px", textShadow:"1px 1px 2px black, 0 0 1em blue,  0 0 0.2em white", font: "italic 3em Georgia, serif"}}>
         Sandesh from{" "}
         {props.category.charAt(0).toUpperCase() +
           props.category.slice(1)}
@@ -73,7 +83,7 @@ const News = (props) => {
         hasMore={hasMore}
         loader={<Spinner/>}
       >
-        <div className="container">
+        <div className="container ">
           <div className="row">
             {articles &&
               articles.map((element, index) => {
@@ -87,6 +97,7 @@ const News = (props) => {
                       author={element.author}
                       date={element.publishedAt}
                       source={element.source.name}
+                      mode={props.mode}
                     />
                   </div>
                 );
