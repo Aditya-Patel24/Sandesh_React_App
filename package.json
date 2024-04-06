@@ -1,16 +1,16 @@
 {
   "name": "vite-project",
-  "homepage": "https://aditya-patel24.github.io/Sandesh_React_App/",
+  "homepage": "https://Aditya-Patel24.github.io/Sandesh_React_App",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "browser-process-hrtime": "^1.0.0",
