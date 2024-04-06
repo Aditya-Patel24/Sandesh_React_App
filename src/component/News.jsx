@@ -19,6 +19,15 @@ const News = (props) => {
     sports: "lightcoral",
     technology: "lightgoldenrodyellow",
   };
+  // const categoriesdark = {
+  //   business: "gray",
+  //   entertainment: "black",
+  //   general: "darkblue",
+  //   health: ,
+  //   science: "darkgray",
+  //   sports: "darkcoral",
+  //   technology: "darkgoldenrodyellow",
+  // };
 
   const newsStyle = {
     backgroundColor: props.mode === 'dark' ? '#212529' : categories[props.category] || "white",

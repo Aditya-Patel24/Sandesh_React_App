@@ -2,6 +2,14 @@
   box-shadow: 0px 0px 45px rgb(23, 23, 23);
   border: #ffffff 2px solid;
 } */
+.container-fluid .nav-container{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+.navbar-collapse{
+  flex-grow: 0;
+}
 .card{
   box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
@@ -33,7 +41,19 @@
   .nav-link {
     position: relative;
   }
-  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2.5px;
+    height: 2px;
+    width: 100%;
+    background-color: rgb(255, 64, 0);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s;
+    border-radius:100%;
+  }
   .nav-link:hover::after {
     content: '';
     position: absolute;
@@ -46,10 +66,10 @@
     transform-origin: center;
     transition: transform 0.5s;
     border-radius:100%;
-  }
-  
-  .nav-link:hover::after {
     transform: scaleX(0.9);
     transform-origin: center;
-    transition: transform 0.5s;
   }
+  .nav-link:hover {
+    color: rgb(44, 199, 255);
+  }
+  
