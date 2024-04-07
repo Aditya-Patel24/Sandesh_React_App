@@ -69,7 +69,6 @@ const News = (props) => {
   };
 
   return (
-    
     <div style={newsStyle}>
       <h1 className="text-center  pt-3" style={{marginTop:"55px", color: "rgba(255, 255, 255, 0.88)", textShadow:"2px 2px 2px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 255, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.5)"}}>
         Sandesh from{" "}
