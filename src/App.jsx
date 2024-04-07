@@ -4,19 +4,23 @@ import Navbar from './component/Navbar';
 import News from './component/News';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
-
+import light from './assets/light.png';
+import moon from './assets/moon.png';
 const App = () => {
   const ref = useRef();
   const pageSize = 6;
   // fc3bc4327aafba7c1e0f7041d"
   const [state, setState] = useState({progress: 0});
+  const [modeLogo, setModeLogo] = useState(moon); // Whether darklogo mode is enabled or not
   const [mode, setMode] = useState('light'); // Whether dark mode is enabled or not
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
+      setModeLogo(light)
       // document.body.style.backgroundColor = '#042743';
     } else {
-      setMode('light'); 
+      setMode('light');
+      setModeLogo(moon) 
       // document.body.style.backgroundColor = 'white';
     }
   }
@@ -28,7 +32,7 @@ const App = () => {
     <div style={{backgroundColor:"rgb(188 223 255)"}}>    
       <Router>
         <LoadingBar color='#f11946' progress={state.progress} />
-        <Navbar mode={mode} toggleMode={toggleMode}/>
+        <Navbar mode={mode} modeLogo={modeLogo} toggleMode={toggleMode}/>
         <Routes>
             <Route path="/" element={<News mode={mode} setProgress={setProgress}  key="home" pageSize={pageSize}  category="general"/>} />
             <Route path="/business" element={<News mode={mode} setProgress={setProgress}  key="business" pageSize={pageSize}  category="business"/>}/>

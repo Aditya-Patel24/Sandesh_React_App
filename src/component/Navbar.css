@@ -27,16 +27,6 @@
   .custom-navbar:hover {
     background-color: #5658dd;
   }
-  
-  .animated-text {
-    animation: color-change 2s infinite;
-  }
-  
-  @keyframes color-change {
-    0% { color: white; }
-    50% { color: rgb(219, 255, 160); }
-    100% { color: white; }
-  }
  
   .nav-link {
     position: relative;
@@ -72,4 +62,14 @@
   .nav-link:hover {
     color: rgb(44, 199, 255);
   }
-  
+  .mode-logo {
+    /* height: 80px; 
+    width: 80px; */
+    transition: transform 0.3s ease;
+  }
+  .mode-logo:active{
+    transform: scale(0.12);
+  }
+  .navbar {
+    height: 55px; /* Adjust as needed */
+  }

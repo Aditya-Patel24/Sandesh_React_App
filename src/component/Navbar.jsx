@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import './Navbar.css'; // Importing the CSS file
 import sandeshLogo from '../assets/sandesh.png';
-
+import light from '../assets/light.png';
+import moon from '../assets/moon.png';
 const Navbar = (props) => {
   return (
     <div>
@@ -39,10 +40,14 @@ const Navbar = (props) => {
               <li className="nav-item"><Link className="nav-link" to="/technology">Technology </Link> </li>
             </ul>
            </div>
-        <div className="form-check form-switch">
+        {/* <div className="form-check form-switch">
           <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
         </div>
-          
+           */}
+           <div className="mode-logo">
+              <img src={`${props.modeLogo}`} onClick={props.toggleMode} alt="mode" style={{width:"40px",height:"auto",  WebkitFilter:" drop-shadow(3px 3px 3px #111111)",
+              filter: "drop-shadow(3px 3px 3px #111111)"}} />
+            </div>
         </div>
          
     
