@@ -67,8 +67,12 @@
     width: 80px; */
     transition: transform 0.3s ease;
   }
+  .mode-logo:hover {
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); /* Add shadow on hover */
+  }
   .mode-logo:active{
-    transform: scale(0.25);
+    transform: scale(0.9)  rotate(45deg); /* Increase size on hover */
+
   }
   .navbar {
     height: 55px; /* Adjust as needed */
