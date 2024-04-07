@@ -68,7 +68,7 @@
     transition: transform 0.3s ease;
   }
   .mode-logo:active{
-    transform: scale(0.12);
+    transform: scale(0.25);
   }
   .navbar {
     height: 55px; /* Adjust as needed */
