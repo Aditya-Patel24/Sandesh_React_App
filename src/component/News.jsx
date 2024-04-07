@@ -3,7 +3,6 @@ import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
-
 const News = (props) => {
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
@@ -17,7 +16,7 @@ const News = (props) => {
       entertainment: '#ff3300',
       sports: '#ff6600',
       science: '#660066',
-      general: 'darkcoral',
+      general: '#ffcc00',
   };
   // const categoriesdark = {
   //   business: "gray",
