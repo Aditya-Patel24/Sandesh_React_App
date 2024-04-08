@@ -12,15 +12,13 @@ const NewsItem = (props) => {
         <div className="card card-deck " style={{height:"700px", ...newsStyle}} >
         <span className="position-absolute center-100 translate-middle badge  " style={{left:'50%',top:'10px',width:"100%",borderBottomLeftRadius:"0px",borderBottomRightRadius:"0px",backgroundColor: props.mode === "light" ? "black" : "white",color: props.mode === "dark" ? "black" : "white"}}>{source} </span>
           <img src={ imageurl ? imageurl: sandeshLogo}className="card-img-top" style={{height:"300px"}} alt="..."/>
-          <div className="blank-container">
-          <div className="card-body card-deck" >
+          <div className="card-body " >
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{description}</p>
             <p className="card-text"><small className="card-muted" style={{color :"red"}}>By {author?author:"Unknown"} on {new Date(date).toGMTString()} </small></p>
             <a href={urlId} target="_blank" rel="noreferrer" className="btn btn-outline-primary btn-sm" >
               Read More
             </a>
-          </div>
           </div>
         </div>
       </div>
