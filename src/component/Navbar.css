@@ -110,7 +110,6 @@ h1{
   .card-text{
     font-size: 1.1rem;
   }
-  .card-body {
-    position: relative;
-    z-index: 10;
-  }
+ .card-body {
+  z-index: 10;
+}
