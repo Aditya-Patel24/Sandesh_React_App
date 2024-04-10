@@ -61,7 +61,7 @@ const News = (props) => {
     let parseData = await data.json();
 
     // Check if all articles have been fetched
-    if (articles?.length + parseData.articles?.length >= parseData.totalResults) {
+    if (articles.length + parseData.articles.length >= parseData.totalResults) {
       setHasMore(false);
     }
     setArticles(articles.concat(parseData.articles));
@@ -77,7 +77,7 @@ const News = (props) => {
       </h1>
       {loading && <Spinner />}
       <InfiniteScroll
-        dataLength={articles?.length}
+        dataLength={articles.length}
         next={fetchMoreData}
         hasMore={hasMore}
         loader={<Spinner/>}
