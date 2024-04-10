@@ -3,7 +3,6 @@ import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
-
 const News = (props) => {
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
@@ -11,22 +10,23 @@ const News = (props) => {
   const [totalResults, setTotalResults] = useState(0);
   const [hasMore, setHasMore] = useState(true);
   const categories = {
-    business: "lightblue",
-    entertainment: "lightgreen",
-    general: "lightyellow",
-    health: "lightpink",
-    science: "lightgray",
-    sports: "lightcoral",
-    technology: "lightgoldenrodyellow",
+      business: '#000066',
+      technology: '#66ccff',
+      health: '#009900',
+      entertainment: '#ff3300',
+      sports: '#ff6600',
+      science: '#660066',
+      general: '#ffcc00',
   };
   // const categoriesdark = {
   //   business: "gray",
   //   entertainment: "black",
   //   general: "darkblue",
-  //   health: ,
+  //   health: "darkgreen",
   //   science: "darkgray",
   //   sports: "darkcoral",
   //   technology: "darkgoldenrodyellow",
+  //   general: "lightgray",
   // };
 
   const newsStyle = {
@@ -69,9 +69,8 @@ const News = (props) => {
   };
 
   return (
-    
     <div style={newsStyle}>
-      <h1 className="text-center text-primary py-2" style={{marginTop:"55px", textShadow:"1px 1px 2px black, 0 0 1em blue,  0 0 0.2em white", font: "italic 3em Georgia, serif"}}>
+      <h1 className="text-center  pt-3" style={{marginTop:"55px", color: "rgba(255, 255, 255, 0.88)", textShadow:"2px 2px 2px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 255, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.5)"}}>
         Sandesh from{" "}
         {props.category.charAt(0).toUpperCase() +
           props.category.slice(1)}
