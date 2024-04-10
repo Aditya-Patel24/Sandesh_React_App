@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import './Navbar.css'; // Importing the CSS file
+import './Navbar.css';
 import sandeshLogo from '../assets/sandesh.png';
 import light from '../assets/light.png';
 import moon from '../assets/moon.png';
