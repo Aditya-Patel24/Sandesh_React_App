@@ -42,32 +42,62 @@ const News = (props) => {
   }, []);
 
   const update = async () => {
-    props.setProgress(10);
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=39b492da28fa492995bea597ec322fbd&page=${page}&pageSize=${props.pageSize}`;
-    let data = await fetch(url);
-    props.setProgress(30);
-    let parseData = await data.json();
-    props.setProgress(50);
-    setArticles(parseData.articles);
-    setTotalResults(parseData.totalResults);
-    setLoading(false);
-    props.setProgress(100);
-  };
-
-  const fetchMoreData = async () => {
-    setPage(page + 1);
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=39b492da28fa492995bea597ec322fbd&page=${page}&pageSize=${props.pageSize}`;
-    let data = await fetch(url);
-    let parseData = await data.json();
-
-    // Check if all articles have been fetched
-    if (articles.length + parseData.articles.length >= parseData.totalResults) {
-      setHasMore(false);
+    try {
+      props.setProgress(10);
+      let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=39b492da28fa492995bea597ec322fbd&page=${page}&pageSize=${props.pageSize}`;
+      let response = await fetch(url);
+      props.setProgress(30);
+      
+      // Check if the response is ok
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      let parseData = await response.json();
+      props.setProgress(50);
+  
+      if (parseData.status !== "ok") {
+        throw new Error(`API error: ${parseData.message}`);
+      }
+  
+      setArticles(parseData.articles);
+      setTotalResults(parseData.totalResults);
+      setLoading(false);
+      props.setProgress(100);
+    } catch (error) {
+      console.error("Error fetching news:", error);
+      setLoading(false);
     }
-    setArticles(articles.concat(parseData.articles));
-    setTotalResults(parseData.totalResults);
   };
-
+  
+  const fetchMoreData = async () => {
+    try {
+      setPage(page + 1);
+      let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=39b492da28fa492995bea597ec322fbd&page=${page}&pageSize=${props.pageSize}`;
+      let response = await fetch(url);
+  
+      // Check if the response is ok
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      let parseData = await response.json();
+  
+      // Handle API response error
+      if (parseData.status !== "ok") {
+        throw new Error(`API error: ${parseData.message}`);
+      }
+  
+      if (articles.length + parseData.articles.length >= parseData.totalResults) {
+        setHasMore(false);
+      }
+      setArticles(articles.concat(parseData.articles));
+      setTotalResults(parseData.totalResults);
+    } catch (error) {
+      console.error("Error fetching more news:", error);
+    }
+  };
+  
   return (
     <div style={newsStyle}>
       <h1 className="text-center  pt-3" style={{marginTop:"55px", color: "rgba(255, 255, 255, 0.88)", textShadow:"2px 2px 2px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 255, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.5)"}}>
