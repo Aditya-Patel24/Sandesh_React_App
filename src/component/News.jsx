@@ -16,7 +16,7 @@ const News = (props) => {
       entertainment: '#ff3300',
       sports: '#ff6600',
       science: '#660066',
-      general: '#ffcc00',
+      general: '#8a90ff',
   };
   // const categoriesdark = {
   //   business: "gray",
