@@ -42,31 +42,61 @@ const News = (props) => {
   }, []);
 
   const update = async () => {
-    props.setProgress(10);
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=39b492da28fa492995bea597ec322fbd&page=${page}&pageSize=${props.pageSize}`;
-    let data = await fetch(url);
-    props.setProgress(30);
-    let parseData = await data.json();
-    props.setProgress(50);
-    setArticles(parseData.articles);
-    setTotalResults(parseData.totalResults);
-    setLoading(false);
-    props.setProgress(100);
+    try {
+      props.setProgress(10);
+      const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=39b492da28fa492995bea597ec322fbd&page=${page}&pageSize=${props.pageSize}`;
+      
+      setLoading(true);
+      const response = await fetch(url);
+  
+      if (response.status === 426) {
+        throw new Error("API requires protocol upgrade. Please check the API documentation.");
+      }
+  
+      props.setProgress(30);
+      const parseData = await response.json();
+  
+      props.setProgress(50);
+      setArticles(parseData.articles || []);
+      setTotalResults(parseData.totalResults || 0);
+      setLoading(false);
+      props.setProgress(100);
+  
+    } catch (error) {
+      console.error("Failed to fetch news:", error);
+      setLoading(false);
+    }
   };
+  
 
   const fetchMoreData = async () => {
-    setPage(page + 1);
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=39b492da28fa492995bea597ec322fbd&page=${page}&pageSize=${props.pageSize}`;
-    let data = await fetch(url);
-    let parseData = await data.json();
-
-    // Check if all articles have been fetched
-    if (articles.length + parseData.articles.length >= parseData.totalResults) {
-      setHasMore(false);
+    try {
+      const nextPage = page + 1;
+      const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=39b492da28fa492995bea597ec322fbd&page=${nextPage}&pageSize=${props.pageSize}`;
+      const response = await fetch(url);
+  
+      if (response.status === 426) {
+        throw new Error("API requires protocol upgrade.");
+      }
+  
+      const parseData = await response.json();
+  
+      // Check if articles are defined and non-empty
+      const newArticles = parseData.articles || [];
+      setArticles([...articles, ...newArticles]);
+      setTotalResults(parseData.totalResults || 0);
+  
+      // Check if all articles have been fetched
+      if (articles.length + newArticles.length >= parseData.totalResults) {
+        setHasMore(false);
+      } else {
+        setPage(nextPage);
+      }
+    } catch (error) {
+      console.error("Failed to fetch more news:", error);
     }
-    setArticles(articles.concat(parseData.articles));
-    setTotalResults(parseData.totalResults);
   };
+  
 
   return (
     <div style={newsStyle}>
