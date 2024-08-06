@@ -52,7 +52,6 @@ const News = (props) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-  
       let parseData = await response.json();
       props.setProgress(50);
   
