@@ -6,6 +6,7 @@ import sandeshLogo from '../assets/sandesh.png';
 import light from '../assets/light.png';
 import moon from '../assets/moon.png';
 const Navbar = (props) => {
+  
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
@@ -32,7 +33,7 @@ const Navbar = (props) => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item"> <Link className="nav-link active" aria-current="page" to="/general"> Home </Link></li>
               <li className="nav-item"><Link className="nav-link" to="/business">Business</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/entertainment">Entertainment</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/entertainment">Entertainment </Link></li>
               <li className="nav-item"><Link className="nav-link" to="/general">General</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/health">Health</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/science">Science</Link></li>
