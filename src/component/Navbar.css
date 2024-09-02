@@ -2,14 +2,14 @@
   box-shadow: 0px 0px 45px rgb(23, 23, 23);
   border: #ffffff 2px solid;
 } */
-@font-face {
-  font-family: myFont;
-  src: url(../assets/pandore.ttf);
-}
-h1{
-  font-family: myFont;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+h1 {
+  font-family: 'Poppins', sans-serif;
   margin-top: 5px;
 }
+
+
 .container-fluid .nav-container{
   display: flex;
   justify-content:space-between;
