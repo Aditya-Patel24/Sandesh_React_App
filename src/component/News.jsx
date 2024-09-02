@@ -44,7 +44,8 @@ const News = (props) => {
   const update = async () => {
     try {
       props.setProgress(10);
-      let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${import.meta.env.VITE_APP_KEY}&page=${page}&pageSize=${props.pageSize}`;
+      console.log("API Key:", import.meta.env.VITE_APP_KEY); 
+      let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey="39b492da28fa492995bea597ec322fbd"&page=${page}&pageSize=${props.pageSize}`;
       let response = await fetch(url);
       props.setProgress(30);
       
@@ -72,7 +73,7 @@ const News = (props) => {
   const fetchMoreData = async () => {
     try {
       setPage(page + 1);
-      let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${import.meta.env.VITE_APP_KEY}&page=${page}&pageSize=${props.pageSize}`;
+      let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey="39b492da28fa492995bea597ec322fbd"&page=${page}&pageSize=${props.pageSize}`;
       let response = await fetch(url);
   
       // Check if the response is ok
