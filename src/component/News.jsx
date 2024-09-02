@@ -45,8 +45,11 @@ const News = (props) => {
     try {
       props.setProgress(10);
       console.log("API Key:", import.meta.env.VITE_APP_KEY); 
-      let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey="39b492da28fa492995bea597ec322fbd"&page=${page}&pageSize=${props.pageSize}`;
-      let response = await fetch(url);
+      let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=39b492da28fa492995bea597ec322fbd&page=${page}&pageSize=${props.pageSize}`;
+      let response = await fetch(url,{headers: {
+        'Upgrade-Insecure-Requests': '1',
+        'Accept': 'application/json'
+      }});
       props.setProgress(30);
       
       // Check if the response is ok
@@ -73,7 +76,7 @@ const News = (props) => {
   const fetchMoreData = async () => {
     try {
       setPage(page + 1);
-      let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey="39b492da28fa492995bea597ec322fbd"&page=${page}&pageSize=${props.pageSize}`;
+      let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=39b492da28fa492995bea597ec322fbd&page=${page}&pageSize=${props.pageSize}`;
       let response = await fetch(url);
   
       // Check if the response is ok
