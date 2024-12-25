@@ -6,7 +6,6 @@ import sandeshLogo from '../assets/sandesh.png';
 import light from '../assets/light.png';
 import moon from '../assets/moon.png';
 const Navbar = (props) => {
-  
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
