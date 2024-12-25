@@ -53,7 +53,6 @@ const News = (props) => {
       if (response.data.status !== "ok") {
         throw new Error(`API error: ${response.data.message}`);
       }
-
       setArticles(response.data.articles);
       setTotalResults(response.data.totalResults);
       setLoading(false);

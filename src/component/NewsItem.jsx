@@ -26,16 +26,14 @@ const NewsItem = (props) => {
               borderBottomRightRadius: "0px",
               backgroundColor: props.mode === "light" ? "black" : "white",
               color: props.mode === "dark" ? "black" : "white",
-            }}
-          >
+            }}>
             {source}{" "}
           </span>
           <img
             src={ imageurl == "default-image-url.jpg" ? sandeshLogo : sandeshLogo && imageurl ? imageurl : sandeshLogo}
             className="card-img-top"
             style={{ height: "300px" }}
-            alt="..."
-          />
+            alt="..."/>
           <div
             className="card-body"
             style={{

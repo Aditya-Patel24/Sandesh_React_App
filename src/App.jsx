@@ -27,7 +27,6 @@ const App = () => {
   const setProgress = (progress) => {
     setState({progress: progress});
   }
-  
   return (
     <div style={{backgroundColor:"rgb(188 223 255)"}}>    
       <Router>
