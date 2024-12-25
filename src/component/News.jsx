@@ -29,7 +29,6 @@ const News = (props) => {
   //   technology: "darkgoldenrodyellow",
   //   general: "lightgray",
   // };
-
   const newsStyle = {
     backgroundColor:
       props.mode === "dark" ? "#212529" : categories[props.category] || "white",
